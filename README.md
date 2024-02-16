@@ -10,7 +10,15 @@ Analogue Pocket port of Mario Bros.
 
 * High Score saving doesn't work.
 * Tate mode isn't supported.
-* Video occasionally loses sync for a couple of frames.
+* Video will occassionally lose sync for a few frames in handheld mode.
+* Video will frequently lose sync in dock.
+
+Note:  File bugs for issues you encounter on the Github tracker.  Any issues are most likely with my integration, and not with the cores themselves.  Please do not engage the original core authors for support requests related to this port.
+
+## Releaes Notes
+
+v0.9.0
+* Initial Release.
 
 ## Attribution
 
