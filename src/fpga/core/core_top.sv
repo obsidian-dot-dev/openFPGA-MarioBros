@@ -649,8 +649,8 @@ reg [23:0] video_rgb_reg;
 reg hs_prev;
 reg vs_prev;
 
-assign video_rgb_clock = clk_core_12;
-assign video_rgb_clock_90 = clk_core_12_90deg;
+assign video_rgb_clock = clk_core_6;
+assign video_rgb_clock_90 = clk_core_6_90deg;
 
 assign video_de = video_de_reg;
 assign video_hs = video_hs_reg;
@@ -658,13 +658,14 @@ assign video_vs = video_vs_reg;
 assign video_rgb = video_rgb_reg;
 assign video_skip = 0;
 
-always @(posedge clk_core_12) begin
+always @(posedge clk_pix) begin
     video_de_reg <= 0;	 
+	 video_rgb_reg[23:0] <= 24'b0;
 
     if (~(vblank_core || hblank_core)) begin
         video_de_reg <= 1;
         video_rgb_reg[23:18] <= {2{r}};
-        video_rgb_reg[15:10]  <= {2{g}};
+        video_rgb_reg[15:10] <= {2{g}};
         video_rgb_reg[7:4]   <= {2{b}};
     end
 
@@ -806,8 +807,8 @@ mario_top mario(
 // Clocks
 ///////////////////////////////////////////////
 
-wire    clk_core_12;
-wire    clk_core_12_90deg;
+wire    clk_core_6;
+wire    clk_core_6_90deg;
 wire    clk_sys;
 
 wire    pll_core_locked;
@@ -816,8 +817,8 @@ mf_pllbase mp1 (
     .refclk         ( clk_74a ),
     .rst            ( 0 ),
 
-    .outclk_0       ( clk_core_12 ),
-    .outclk_1       ( clk_core_12_90deg ),
+    .outclk_0       ( clk_core_6 ),
+    .outclk_1       ( clk_core_6_90deg ),
     .outclk_2       ( clk_sys ),
 
     .locked         ( pll_core_locked )

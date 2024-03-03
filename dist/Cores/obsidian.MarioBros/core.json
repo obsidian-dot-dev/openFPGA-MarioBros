@@ -7,8 +7,8 @@
             "description": "Mario Bros. released in 1983.",
             "author": "obsidian",
             "url": "https://github.com/obsidian-dot-dev/openFPGA-MarioBros",
-            "version": "0.9.2",
-            "date_release": "2024-02-23"
+            "version": "0.9.3",
+            "date_release": "2024-03-02"
         },
         "framework": {
             "target_product": "Analogue Pocket",
